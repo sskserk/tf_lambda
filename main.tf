@@ -8,6 +8,7 @@ data "aws_caller_identity" "current" {}
 resource "aws_iam_role" "iam_role_for_lambda" {
   name = "iam_role_for_lambda"
 
+
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -29,8 +30,8 @@ EOF
 module "lambda_get" {
   source  = "./lambda"
   name    = "tour_lambda"
-  handler = "get_handler"
-  runtime = "python2.7"
+  handler = "com.srk.lambda.Handler"
+  runtime = "java8"
   role    = "${aws_iam_role.iam_role_for_lambda.arn}"
 }
 

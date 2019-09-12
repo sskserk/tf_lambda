@@ -8,16 +8,36 @@
     <artifactId>jv</artifactId>
     <version>1.0</version>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>com.amazonaws.serverless</groupId>
             <artifactId>aws-serverless-java-container-spring</artifactId>
-            <version>0.5</version> <!-- 0.5-SNAPSHOT -->
+            <version>[0.1,)</version> <!-- 0.5-SNAPSHOT -->
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;<groupId>com.amazonaws</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;<artifactId>aws-lambda-java-core</artifactId>&ndash;&gt;-->
+        <!--&lt;!&ndash;<version>1.1.0</version>&ndash;&gt;-->
+        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-autoconfigure</artifactId>-->
+            <!--<version>2.1.8.RELEASE</version>-->
+        <!--</dependency>-->
     </dependencies>
 
-    <build>
 
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -32,6 +52,13 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.apache.tomcat.embed:*</exclude>
+                                </excludes>
+                            </artifactSet>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
