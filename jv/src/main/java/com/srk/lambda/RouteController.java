@@ -19,4 +19,14 @@ public class RouteController {
     public String root() {
         return "ROOT";
     }
+
+    @RequestMapping(path = "/haha")
+    public String haha() {
+        return "HAHA";
+    }
+
+    @RequestMapping(path = "/haha/tour")
+    public String subRoot() {
+        return "HAHA_TOUR";
+    }
 }

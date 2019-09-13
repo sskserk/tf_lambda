@@ -15,7 +15,6 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 //import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.srk.lambda")
 @Import({RouteController.class})
 public class TourLambdaApplication extends SpringBootServletInitializer {
 

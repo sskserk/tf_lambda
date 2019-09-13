@@ -46,6 +46,7 @@ public class Handler implements RequestStreamHandler {
        // String request = IOUtils..toString(inputStream);
      //   System.out.println("Request:" + request);
 
+
         handler.proxyStream(inputStream, outputStream, context);
         // just in case it wasn't closed
         outputStream.close();
