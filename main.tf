@@ -55,7 +55,7 @@ resource "aws_api_gateway_rest_api" "tour_api" {
 resource "aws_api_gateway_resource" "tour_api_res_hello" {
   rest_api_id = "${aws_api_gateway_rest_api.tour_api.id}"
   parent_id   = "${aws_api_gateway_rest_api.tour_api.root_resource_id}"
-  path_part   = "tour"
+  path_part   = "{proxy+}"
 }
 
 # Until now, the resource created could not respond to anything. We must set up
