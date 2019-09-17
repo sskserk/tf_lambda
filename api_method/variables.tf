@@ -26,3 +26,7 @@ variable "region" {
 variable "account_id" {
   description = "The AWS account ID"
 }
+
+variable "root_resource_id" {
+  description = "Root resource ID"
+}
